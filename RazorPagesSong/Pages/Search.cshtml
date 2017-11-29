@@ -1,0 +1,92 @@
+﻿@page
+@model SearchModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+<form>
+    <p>
+        Album:
+        <select asp-for="SongAlbum" asp-items="Model.Albums">
+            <option value="">All</option>
+        </select>
+
+        Rating:
+        <select asp-for="SongRating" asp-items="Model.Rating">
+            <option value="">All</option>
+        </select>
+
+        Release Year:
+        <select asp-for="SongYear" asp-items="Model.Year">
+            <option value="">All</option>
+        </select>
+
+        Title: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+<br />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Title)
+            </th>
+            <th>
+                Lyrics By
+            </th>
+            <th>
+                Composed By
+            </th>
+
+            <th>
+                Year of Release
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Artist)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Album)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Song[0].Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Song)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Writer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Composer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate.Year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Artist)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Album)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    <a asp-page="./Songs/Details" asp-route-id="@item.ID">Details</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    <a asp-page="./Index">Back to Song List</a>
+</div>

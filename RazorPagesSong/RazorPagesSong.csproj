@@ -3,9 +3,20 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <None Remove="Properties\PublishProfiles\Lab820171128064803 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\ProperLab8 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\RazorPagesSong20171122070247 - Web Deploy.pubxml" />
+    <None Remove="Properties\PublishProfiles\RazorPagesSong20171122072030 - Web Deploy.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
 </Project>
